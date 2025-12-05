@@ -6,9 +6,10 @@
 
 interface Props {
   phone?: string;
+  logo?: string;
 }
 
-const { phone = "+442012345678" } = Astro.props;
+const { phone = "+442012345678", logo = "/images/logo.png" } = Astro.props;
 
 // Clean phone number for WhatsApp
 const whatsappNumber = phone.replace(/[\s+]/g, '');
@@ -21,7 +22,7 @@ const whatsappNumber = phone.replace(/[\s+]/g, '');
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2">
         <img 
-          src="/images/logo.png" 
+          src={logo}
           alt="Only Clean - Professional Carpet Cleaning London"
           width="140"
           height="40"

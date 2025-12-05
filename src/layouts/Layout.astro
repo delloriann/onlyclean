@@ -14,9 +14,10 @@ interface Props {
   description: string;
   image?: string;
   phone?: string;
+  logo?: string;
 }
 
-const { title, description, image, phone = "+442012345678" } = Astro.props;
+const { title, description, image, phone = "+442012345678", logo = "/images/logo.png" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -62,7 +63,7 @@ const { title, description, image, phone = "+442012345678" } = Astro.props;
   </a>
   
   <!-- Header -->
-  <Header phone={phone} />
+  <Header phone={phone} logo={logo} />
   
   <!-- Main Content -->
   <main id="main-content">

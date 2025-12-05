@@ -77,6 +77,10 @@ content:
       - name: businessName
         label: Business Name
         type: string
+      - name: logo
+        label: Logo Image
+        type: image
+        description: "Upload your logo (recommended: PNG with transparent background)"
       - name: phone
         label: Phone Number
         type: string
