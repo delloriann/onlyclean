@@ -52,14 +52,9 @@ content:
             description: "Upload a transparent PNG for best results"
           - name: backgroundColor
             label: Background Color
-            type: select
-            options:
-              - label: Primary Cyan
-                value: primary-cyan
-              - label: White
-                value: white
-              - label: Light Cyan
-                value: cyan-50
+            type: string
+            default: primary-cyan
+            description: "Options: primary-cyan, white, or cyan-50"
 
       # Trust Badge
       - name: trustBadge
