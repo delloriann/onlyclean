@@ -1,0 +1,19 @@
+{
+  "seo": {
+    "seoTitle": "Professional Carpet Cleaning in London",
+    "seoDescription": "Only Clean offers eco-friendly carpet, rug & upholstery cleaning across London & Greater London. Same-day service available. Rated 4.9★ by 127+ happy customers. Book your free quote today!",
+    "ogImage": "/images/og-default.jpg"
+  },
+  "hero": {
+    "headline": "London's Freshest Carpets, Guaranteed.",
+    "subheadline": "Eco-friendly deep cleaning for homes in Kensington, Camden, Islington & Central London.",
+    "ctaText": "Book Your Free Quote",
+    "ctaLink": "/contact",
+    "heroImage": "/images/cleaner-hero.png",
+    "backgroundColor": "primary-cyan"
+  },
+  "trustBadge": {
+    "show": true,
+    "text": "Rated 4.9★ by 127+ London homes"
+  }
+}

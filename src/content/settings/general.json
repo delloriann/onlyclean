@@ -1,0 +1,16 @@
+{
+  "businessName": "Only Clean",
+  "phone": "+44 20 1234 5678",
+  "email": "hello@onlyclean.co.uk",
+  "address": "123 Clean Street, London, SW1A 1AA",
+  "hours": {
+    "weekdays": "8:00 AM - 6:00 PM",
+    "saturday": "9:00 AM - 4:00 PM",
+    "sunday": "Closed"
+  },
+  "social": {
+    "facebook": "https://facebook.com/onlyclean",
+    "instagram": "https://instagram.com/onlyclean",
+    "twitter": "https://twitter.com/onlyclean"
+  }
+}

@@ -1,0 +1,223 @@
+backend:
+  name: github
+  repo: your-username/onlyclean # Replace with your GitHub repo
+  branch: main
+  base_url: https://api.pagescms.org
+  auth_endpoint: /auth
+
+# Media files configuration
+media_folder: public/images
+public_folder: /images
+
+# Site settings
+site_url: https://onlyclean.co.uk
+display_url: https://onlyclean.co.uk
+logo_url: /images/logo.png
+
+# Content collections
+collections:
+  # Homepage Content
+  - name: homepage
+    label: Homepage
+    files:
+      - name: hero
+        label: Hero Section
+        file: src/content/homepage/hero.json
+        fields:
+          # SEO Fields
+          - label: SEO Settings
+            name: seo
+            widget: object
+            collapsed: false
+            fields:
+              - label: SEO Title
+                name: seoTitle
+                widget: string
+                hint: "Recommended: 50-60 characters. Include 'London' or 'Carpet Cleaning' for local SEO."
+                pattern: ['.{30,70}', "Title should be 30-70 characters"]
+              - label: SEO Description
+                name: seoDescription
+                widget: text
+                hint: "Recommended: 150-160 characters. Include a call-to-action and location keywords."
+                pattern: ['.{100,170}', "Description should be 100-170 characters"]
+              - label: OG Image
+                name: ogImage
+                widget: image
+                required: false
+                hint: "Social sharing image. Recommended size: 1200x630px"
+
+          # Hero Content Fields
+          - label: Hero Content
+            name: hero
+            widget: object
+            collapsed: false
+            fields:
+              - label: Headline
+                name: headline
+                widget: string
+                hint: "Main H1 heading. Keep geo-targeted for SEO (include 'London')."
+                default: "London's Freshest Carpets, Guaranteed."
+              - label: Subheadline
+                name: subheadline
+                widget: text
+                hint: "Supporting text below headline. Mention specific London boroughs for local SEO."
+                default: "Eco-friendly deep cleaning for homes in Kensington, Camden, Islington & Central London."
+              - label: CTA Button Text
+                name: ctaText
+                widget: string
+                default: "Book Your Free Quote"
+              - label: CTA Button Link
+                name: ctaLink
+                widget: string
+                default: "/contact"
+                hint: "Link destination for the main call-to-action button"
+              - label: Hero Image
+                name: heroImage
+                widget: image
+                hint: "Upload a transparent PNG of cleaner/equipment for best results"
+                default: "/images/cleaner-hero.png"
+              - label: Background Color
+                name: backgroundColor
+                widget: select
+                options:
+                  - { label: "Primary Cyan", value: "primary-cyan" }
+                  - { label: "White", value: "white" }
+                  - { label: "Light Cyan", value: "cyan-50" }
+                default: "primary-cyan"
+
+          # Trust Indicators
+          - label: Trust Badge
+            name: trustBadge
+            widget: object
+            collapsed: true
+            fields:
+              - label: Show Trust Badge
+                name: show
+                widget: boolean
+                default: true
+              - label: Badge Text
+                name: text
+                widget: string
+                default: "Rated 4.9★ by 127+ London homes"
+
+  # Services
+  - name: services
+    label: Services
+    folder: src/content/services
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: Service Name
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Icon
+        name: icon
+        widget: select
+        options:
+          - { label: "Carpet", value: "carpet" }
+          - { label: "Sofa", value: "sofa" }
+          - { label: "Rug", value: "rug" }
+          - { label: "Mattress", value: "mattress" }
+      - label: Price From
+        name: priceFrom
+        widget: string
+        hint: "e.g., '£30'"
+      - label: Featured
+        name: featured
+        widget: boolean
+        default: false
+      - label: Order
+        name: order
+        widget: number
+        default: 0
+
+  # Testimonials
+  - name: testimonials
+    label: Testimonials
+    folder: src/content/testimonials
+    create: true
+    slug: "{{name}}-{{year}}{{month}}{{day}}"
+    fields:
+      - label: Customer Name
+        name: name
+        widget: string
+      - label: Location
+        name: location
+        widget: string
+        hint: "e.g., 'Kensington, London'"
+      - label: Review Text
+        name: review
+        widget: text
+      - label: Rating
+        name: rating
+        widget: number
+        min: 1
+        max: 5
+        default: 5
+      - label: Date
+        name: date
+        widget: datetime
+      - label: Featured
+        name: featured
+        widget: boolean
+        default: false
+
+  # Global Settings
+  - name: settings
+    label: Site Settings
+    files:
+      - name: general
+        label: General Settings
+        file: src/content/settings/general.json
+        fields:
+          - label: Business Name
+            name: businessName
+            widget: string
+            default: "Only Clean"
+          - label: Phone Number
+            name: phone
+            widget: string
+            default: "+44 20 1234 5678"
+          - label: Email
+            name: email
+            widget: string
+            default: "hello@onlyclean.co.uk"
+          - label: Address
+            name: address
+            widget: text
+          - label: Opening Hours
+            name: hours
+            widget: object
+            fields:
+              - label: Weekdays
+                name: weekdays
+                widget: string
+                default: "8:00 AM - 6:00 PM"
+              - label: Saturday
+                name: saturday
+                widget: string
+                default: "9:00 AM - 4:00 PM"
+              - label: Sunday
+                name: sunday
+                widget: string
+                default: "Closed"
+          - label: Social Media
+            name: social
+            widget: object
+            collapsed: true
+            fields:
+              - label: Facebook URL
+                name: facebook
+                widget: string
+                required: false
+              - label: Instagram URL
+                name: instagram
+                widget: string
+                required: false
+              - label: Twitter URL
+                name: twitter
+                widget: string
+                required: false

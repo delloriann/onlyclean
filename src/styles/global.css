@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* Custom Theme Configuration for Only Clean */
+@theme {
+  /* Brand Colors */
+  --color-primary-cyan: #2CD5E5;
+  --color-primary-dark: #2B5E75;
+  --color-brand-white: #FFFFFF;
+  
+  /* Extended color palette */
+  --color-cyan-50: #ecfeff;
+  --color-cyan-100: #cffafe;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #2CD5E5;
+  --color-cyan-600: #0891b2;
+  --color-cyan-700: #0e7490;
+  --color-cyan-800: #155e75;
+  --color-cyan-900: #164e63;
+  
+  /* Font Families */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

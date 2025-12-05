@@ -1,0 +1,182 @@
+---
+/**
+ * SEO Component for Only Clean
+ * Handles meta tags, Open Graph, Twitter Cards, and JSON-LD Schema
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  image = '/images/og-default.jpg',
+  canonicalUrl = Astro.url.href,
+  type = 'website'
+} = Astro.props;
+
+const siteName = 'Only Clean - Professional Carpet Cleaning London';
+const fullTitle = `${title} | Only Clean`;
+
+// LocalBusiness + CleaningService Schema
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "CleaningService"],
+  "@id": "https://onlyclean.co.uk/#business",
+  "name": "Only Clean",
+  "alternateName": "Only Clean London",
+  "description": "Professional eco-friendly carpet and upholstery cleaning services in London and Greater London. Deep cleaning for homes and businesses.",
+  "url": "https://onlyclean.co.uk",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://onlyclean.co.uk/images/logo.png",
+    "width": 400,
+    "height": 100
+  },
+  "image": [
+    "https://onlyclean.co.uk/images/carpet-cleaning-london.jpg",
+    "https://onlyclean.co.uk/images/upholstery-cleaning.jpg"
+  ],
+  "telephone": "+44-20-XXXX-XXXX",
+  "email": "hello@onlyclean.co.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Clean Street",
+    "addressLocality": "London",
+    "addressRegion": "Greater London",
+    "postalCode": "SW1A 1AA",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.5074,
+    "longitude": -0.1278
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "London"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Greater London"
+    },
+    {
+      "@type": "Place",
+      "name": "Central London"
+    },
+    {
+      "@type": "Place", 
+      "name": "North London"
+    },
+    {
+      "@type": "Place",
+      "name": "South London"
+    },
+    {
+      "@type": "Place",
+      "name": "East London"
+    },
+    {
+      "@type": "Place",
+      "name": "West London"
+    }
+  ],
+  "priceRange": "££",
+  "currenciesAccepted": "GBP",
+  "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Bank Transfer"],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "16:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Cleaning Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Carpet Cleaning",
+          "description": "Professional deep carpet cleaning using eco-friendly products"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Upholstery Cleaning",
+          "description": "Sofa and furniture upholstery cleaning service"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Rug Cleaning",
+          "description": "Specialist rug cleaning for all types of rugs"
+        }
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://www.facebook.com/onlyclean",
+    "https://www.instagram.com/onlyclean",
+    "https://twitter.com/onlyclean"
+  ]
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English" />
+<meta name="author" content="Only Clean" />
+<meta name="geo.region" content="GB-LND" />
+<meta name="geo.placename" content="London" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalUrl} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
