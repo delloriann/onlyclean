@@ -1,0 +1,119 @@
+media:
+  input: public/images
+  output: /images
+
+content:
+  # Homepage Hero Section
+  - name: homepage
+    label: Homepage
+    type: file
+    path: src/content/homepage/hero.json
+    fields:
+      # SEO Fields
+      - name: seo
+        label: SEO Settings
+        type: object
+        fields:
+          - name: seoTitle
+            label: SEO Title
+            type: string
+            description: "Recommended: 50-60 characters. Include 'London' for local SEO."
+          - name: seoDescription
+            label: SEO Description
+            type: text
+            description: "Recommended: 150-160 characters. Include a call-to-action."
+          - name: ogImage
+            label: Social Share Image
+            type: image
+            description: "Recommended size: 1200x630px"
+
+      # Hero Content
+      - name: hero
+        label: Hero Content
+        type: object
+        fields:
+          - name: headline
+            label: Headline (H1)
+            type: string
+            description: "Main heading - keep geo-targeted for SEO"
+          - name: subheadline
+            label: Subheadline
+            type: text
+            description: "Supporting text - mention London boroughs"
+          - name: ctaText
+            label: CTA Button Text
+            type: string
+          - name: ctaLink
+            label: CTA Button Link
+            type: string
+          - name: heroImage
+            label: Hero Image
+            type: image
+            description: "Upload a transparent PNG for best results"
+          - name: backgroundColor
+            label: Background Color
+            type: select
+            options:
+              - label: Primary Cyan
+                value: primary-cyan
+              - label: White
+                value: white
+              - label: Light Cyan
+                value: cyan-50
+
+      # Trust Badge
+      - name: trustBadge
+        label: Trust Badge
+        type: object
+        fields:
+          - name: show
+            label: Show Trust Badge
+            type: boolean
+          - name: text
+            label: Badge Text
+            type: string
+
+  # Site Settings
+  - name: settings
+    label: Site Settings
+    type: file
+    path: src/content/settings/general.json
+    fields:
+      - name: businessName
+        label: Business Name
+        type: string
+      - name: phone
+        label: Phone Number
+        type: string
+      - name: email
+        label: Email
+        type: string
+      - name: address
+        label: Address
+        type: text
+      - name: hours
+        label: Opening Hours
+        type: object
+        fields:
+          - name: weekdays
+            label: Weekdays
+            type: string
+          - name: saturday
+            label: Saturday
+            type: string
+          - name: sunday
+            label: Sunday
+            type: string
+      - name: social
+        label: Social Media
+        type: object
+        fields:
+          - name: facebook
+            label: Facebook URL
+            type: string
+          - name: instagram
+            label: Instagram URL
+            type: string
+          - name: twitter
+            label: Twitter URL
+            type: string
